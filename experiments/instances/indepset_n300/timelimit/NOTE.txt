@@ -1,0 +1,3 @@
+Instances in this directory hit the time limit of 1h in our experiments.
+
+Note that plot_results.py can be run with the argument indepset_n300_clean which assumes these instances all hit the time limit.
