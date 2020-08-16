@@ -80,23 +80,17 @@ Other than the code and the scripts included above, we include:
 Code structure
 --------------
 
-bdd/
-    Basic structure for binary decision diagrams. `bdd.hpp` and `bdd_node.hpp` contain the decision diagram structure itself, including functions to manipulate it. `bdd_pass.hpp` contains generic functions to perform top-down or bottom-up computations on the decision diagram.
+* `bdd/`: Basic structure for binary decision diagrams. `bdd.hpp` and `bdd_node.hpp` contain the decision diagram structure itself, including functions to manipulate it. `bdd_pass.hpp` contains generic functions to perform top-down or bottom-up computations on the decision diagram.
 
-core/
-    Functions for constructing decision diagrams, including relaxed decision diagrams. The functions in `solver.hpp` are responsible for the construction, with callback functionality as defined in `solver_callback.hpp`. The possible orderings for decision diagrams are in `orderings.hpp`, managed by `order.hpp`. Relaxed decision diagrams require mergers, in `mergers.hpp`, handled by `merge.hpp`.
+* `core/`: Functions for constructing decision diagrams, including relaxed decision diagrams. The functions in `solver.hpp` are responsible for the construction, with callback functionality as defined in `solver_callback.hpp`. The possible orderings for decision diagrams are in `orderings.hpp`, managed by `order.hpp`. Relaxed decision diagrams require mergers, in `mergers.hpp`, handled by `merge.hpp`.
 
-ip/
-    Functions to build and solve the MIP model and generate bounds from decision diagrams. This includes a SCIP relaxator in `relax_dd.h` which builds decision diagrams and generates bounds. `ip_scip.hpp` contains the main function that solves the MIP.
+* `ip/`: Functions to build and solve the MIP model and generate bounds from decision diagrams. This includes a SCIP relaxator in `relax_dd.h` which builds decision diagrams and generates bounds. `ip_scip.hpp` contains the main function that solves the MIP.
 
-lagrangian/
-    Functions related to generating bounds via Lagrangian relaxation. There are a number of different implementations. For the paper, we highlight the following files. `lagrangian_cb.hpp` handles the Lagrangian relaxation itself with the ConicBundle library. `lg_dd_selector_ct_scip.hpp` is responsible for selecting the Lagrangian constraints for the clique table (see also `lg_constraint.hpp` and `lg_constraint_scip.hpp`). Lagrangian subproblems are in `lg_subprob_*.hpp`, which include optimizing over the decision diagram (`lg_subprob_bdd.hpp`) and checking for feasibility to obtain a primal bound (`lg_subprob_feas.hpp`).
+* `lagrangian/`: Functions related to generating bounds via Lagrangian relaxation. There are a number of different implementations. For the paper, we highlight the following files. `lagrangian_cb.hpp` handles the Lagrangian relaxation itself with the ConicBundle library. `lg_dd_selector_ct_scip.hpp` is responsible for selecting the Lagrangian constraints for the clique table (see also `lg_constraint.hpp` and `lg_constraint_scip.hpp`). Lagrangian subproblems are in `lg_subprob_*.hpp`, which include optimizing over the decision diagram (`lg_subprob_bdd.hpp`) and checking for feasibility to obtain a primal bound (`lg_subprob_feas.hpp`).
 
-problem/
-    Problem-dependent structure, such as instances, domains, mergers, orderings, states (including transition function), etc. There are three available problems: bp, cliquetable, and indepset. For the paper, we only use cliquetable (conflict graph). The problem definition and DP formulation are in `cliquetable_problem.hpp`, `cliquetable_instance.hpp`, and `cliquetable_state.hpp`. The propagation of linear inequalities is in `ct_prop_linearcons.hpp`.
+* `problem/`: Problem-dependent structure, such as instances, domains, mergers, orderings, states (including transition function), etc. There are three available problems: bp, cliquetable, and indepset. For the paper, we only use cliquetable (conflict graph). The problem definition and DP formulation are in `cliquetable_problem.hpp`, `cliquetable_instance.hpp`, and `cliquetable_state.hpp`. The propagation of linear inequalities is in `ct_prop_linearcons.hpp`.
 
-util/
-    Data structures (graph, set), options, timing, macros.
+* `util/`: Data structures (graph, set), options, timing, macros.
 
 
 Acknowledgments
