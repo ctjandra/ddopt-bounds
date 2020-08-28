@@ -3,7 +3,7 @@ Incorporating Bounds from Decision Diagrams into Integer Programming
 
 This is the implementation used to produce the computational results in the following paper:
 
-* C. Tjandraatmadja and W.-J. van Hoeve, Incorporating Bounds from Decision Diagrams into Integer Programming. To appear.
+* C. Tjandraatmadja and W.-J. van Hoeve, [Incorporating Bounds from Decision Diagrams into Integer Programming](http://www.andrew.cmu.edu/user/vanhoeve/papers/MPC_DD_Bounds_for_IP_Preprint.pdf). To appear.
 
 In this paper and implementation, we generate dual bounds from relaxed decision diagrams with the goal of improving pruning throughout the branch-and-bound tree of a MIP solver. We use Lagrangian relaxation and constraint propagation to take into account constraints that are more difficult to tackle with decision diagrams. We test this approach on the independent set problem with and without knapsack side constraints.
 
